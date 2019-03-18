@@ -16,15 +16,11 @@ weatherForm.addEventListener('submit', (e) => {
     fetch('/weather?address=' + location).then((response) => {
         response.json().then((data) => {
             if(data.error) {
-                console.log(data.error);
-
                 messageOnetextContent = data.error;
             }else {
-                console.log(data.location);
-                console.log(data.forecast);
 
                 messageOne.textContent = data.location;
-                messageTwo.textContent = JSON.stringify(data.forecast);
+                messageTwo.textContent = data.forecast;
             }
         });
     });
